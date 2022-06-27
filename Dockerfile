@@ -2,8 +2,7 @@ FROM python:3
 
 ADD ./ /
 
-RUN pip install requests
-RUN pip install pandas
+RUN pip install -r requirements.txt
 
 CMD [ "python", "./main.py" ]
 
