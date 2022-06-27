@@ -60,6 +60,11 @@ To get a local copy up and running follow these simple steps.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
+<!-- DATA-->
+## DATA
+
+To request custom stocks, simply add the stock symbol into any of the .csv files and processor will read from the "SYMBOL" column. Currently the .csv files are shipped inside the docker container, this is obviously not ideal, I'm working on a better solution.
+
 <!-- ROADMAP -->
 ## Roadmap
 
