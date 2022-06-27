@@ -1,9 +1,9 @@
 FROM python:3
 
-ADD ./backend/ /
+ADD ./backend/ /backend/
 ADD main.py /
 ADD requirements.txt /
-ADD ./data /
+ADD ./data /data/
 
 
 RUN pip install -r requirements.txt
