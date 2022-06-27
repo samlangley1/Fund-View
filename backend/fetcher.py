@@ -54,7 +54,7 @@ class Fetcher():
                     stock_peg_ratio = stock_pe_ratio / stock_eps_percent_change
 
                 #if 0 < stock_peg_ratio < 2 and 0 < stock_pe_ratio < 5 and stock_eps_percent_change > 10:
-                    print(
+                print(
                         f"{stock} is currently at {stock_price} per share.\nCurrent EPS {stock_eps_current} -1y:"
                         f" {stock_eps_trailing} +1y: {stock_eps_forward} +1y % change prediction: "
                         f"{stock_eps_percent_change}\nP/E Ratio (Lower the Better): {stock_pe_ratio} P"
