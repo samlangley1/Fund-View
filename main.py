@@ -1,8 +1,9 @@
-from backend.processor import Processor,processed_data
+from backend.processor import Processor
 from backend.fetcher import Fetcher
+from backend.params import fetch_url,api_key
 
-if __name__ == "__main__":
-    Processor.processdata(data={
+
+data_import = {
         "consumer_discretionary":"./data/sp-sectors/sp-sectors-consumer-discretionary.csv",
         "consumer_staples":"./data/sp-sectors/sp-sectors-consumer-staples.csv",
         "energy":"./data/sp-sectors/sp-sectors-energy.csv",
@@ -14,6 +15,13 @@ if __name__ == "__main__":
         "real_estate":"./data/sp-sectors/sp-sectors-real-estate.csv",
         "telecom_services":"./data/sp-sectors/sp-sectors-telecom-services.csv",
         "utility":"./data/sp-sectors/sp-sectors-utility.csv"
-        })
+        }
 
-    Fetcher.get_data(processed_data)
+P = Processor()
+F = Fetcher()
+
+
+
+if __name__ == "__main__":
+    P.processdata(data_import)
+    F.fetch(P.processed_data)

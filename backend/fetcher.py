@@ -1,8 +1,33 @@
-from secrets import fetch_url, api_key
-from processor import industries
+from backend.params import fetch_url, api_key
+from backend.processor import Processor
 import requests
 
 class Fetcher():
+    """
+    A class to fetch and return data from Yahoo finance API.
+
+    ...
+
+    Attributes
+    ----------
+    URL : str
+        The Yahoo finance URL to fetch data from
+
+    api_key : str
+        The API key to use in the request header to Yahoo finance API
+
+    headers : dict
+        A dictionary formulated from api_key to use as a header when requesting from Yahoo Finance API
+
+    Methods
+    ----------
+    get_data(data=""):
+        Scrapes json response for specific metrics and prints based on a set of requirements
+    
+    fetch(data=""):
+        Fetches data from Yahoo Finance API
+    """
+    
     def __init__(self):
         self.url = fetch_url
         self.api_key = api_key
@@ -11,7 +36,7 @@ class Fetcher():
     }
 
 
-    def get_data(data):
+    def get_data(self,data):
         for index in range(len(data)):
             try:
                 for key in (data[index]):
@@ -28,7 +53,7 @@ class Fetcher():
                             (stock_eps_forward + stock_eps_current) / 2)) * 100
                     stock_peg_ratio = stock_pe_ratio / stock_eps_percent_change
 
-                if 0 < stock_peg_ratio < 2 and 0 < stock_pe_ratio < 5 and stock_eps_percent_change > 10:
+                #if 0 < stock_peg_ratio < 2 and 0 < stock_pe_ratio < 5 and stock_eps_percent_change > 10:
                     print(
                         f"{stock} is currently at {stock_price} per share.\nCurrent EPS {stock_eps_current} -1y:"
                         f" {stock_eps_trailing} +1y: {stock_eps_forward} +1y % change prediction: "
@@ -37,11 +62,11 @@ class Fetcher():
             except:
                 pass
 
-    def fetch(self):
-        for industry in industries:
-            sp500_list = {"symbols": industry}
-            response_sp500 = requests.request("GET", self.fetch_url, headers=self.headers, params=sp500_list)
-            response_sp500.raise_for_status()
-            sp_500_jsonResponse = response_sp500.json()
-            data = sp_500_jsonResponse["quoteResponse"]["result"]
-            get_data(data)
+    def fetch(self,data):
+        for symbol in data:
+            symbol_list = {"symbols": symbol}
+            response = requests.request("GET", self.url, headers=self.headers, params=symbol_list)
+            response.raise_for_status()
+            jsonResponse = response.json()
+            formatted_data = jsonResponse["quoteResponse"]["result"]
+            self.get_data(formatted_data)
