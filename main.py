@@ -23,5 +23,4 @@ F = Fetcher()
 
 
 if __name__ == "__main__":
-    P.processdata(data_import)
     F.fetch(P.processed_data)
