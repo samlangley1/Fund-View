@@ -32,7 +32,7 @@ Fund View was designed to make it easier to track stocks against the most import
 To get a local copy up and running follow these simple steps.
 
 - Clone the repository to a local directory
-- Open secrets.py and enter your yahoo finance API key
+- Open backend/params.py and enter your yahoo finance API key
 - From the root directory, run the command 'sudo docker build -t fund-view .'
 - Run the command 'sudo docker run fund-view'
 
@@ -52,9 +52,9 @@ To get a local copy up and running follow these simple steps.
    ```sh
    git clone https://github.com/samlangley1/Fund-View.git
    ```
-3. Enter your API key in `secrets.py`
+3. Enter your API key in `params.py`
    ```Python
-   API_KEY = 'ENTER YOUR API KEY'
+   api_key = 'ENTER YOUR API KEY'
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
