@@ -16,7 +16,7 @@
 
 Fund View was designed to make it easier to track stocks against the most important metrics for investment. It's an incredibly simple fetch and display application that can be up and running in seconds.
 
-[Imgur](https://i.imgur.com/JJjCWJA.png)
+[Fund View](https://i.imgur.com/JJjCWJA.png)
 
 
 
