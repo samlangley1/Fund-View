@@ -65,9 +65,14 @@ class Fetcher():
 
     def fetch(self,data):
         for symbol in data:
-            symbol_list = {"symbols": symbol}
-            response = requests.request("GET", self.url, headers=self.headers, params=symbol_list)
-            response.raise_for_status()
-            jsonResponse = response.json()
-            formatted_data = jsonResponse["quoteResponse"]["result"]
-            self.get_data(formatted_data)
+            try:
+                symbol_list = {"symbols": symbol}
+                response = requests.request("GET", self.url, headers=self.headers, params=symbol_list)
+                response.raise_for_status()
+                jsonResponse = response.json()
+                formatted_data = jsonResponse["quoteResponse"]["result"]
+                self.get_data(formatted_data)
+            except requests.exceptions.HTTPError as err:
+                print("Too many requests, you may have hit your API call limit")
+                raise SystemExit(err)
+
