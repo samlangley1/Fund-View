@@ -67,6 +67,8 @@ Docker:
    ```Python
    api_key = 'ENTER YOUR API KEY'
    ```
+4. Run 'python main.py'
+5. Profit!
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
