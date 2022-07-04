@@ -39,7 +39,7 @@ class Fetcher():
     def get_data(self,data):
         for index in range(len(data)):
             try:
-                for key in (data[index]):
+                for i in (data[index]):
                     stock = data[index]["shortName"]
                     stock_price = data[index]["regularMarketPrice"]
                     stock_eps_current = data[index]["epsCurrentYear"]
