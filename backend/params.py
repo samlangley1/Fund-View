@@ -7,3 +7,8 @@ subscription_plan = "BASIC"
 
 # False will display all scraped stocks, True will only show scraped stocks that meet the criteria defined in fetcher.py
 alert_only = False
+
+
+
+# Throttles outgoing API calls to avoid potential IP ban *Recommended*
+throttle = True
